@@ -1,7 +1,14 @@
-import Image from "next/image";
+"use client";
+import ProjectsOverview from "./projects/page";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 export default function Home() {
+  const queryClient = new QueryClient();
   return (
-    <div className="text-red-600">Homepage</div>
+    <div>
+      <QueryClientProvider client={queryClient}>
+        <ProjectsOverview />
+      </QueryClientProvider>
+    </div>
   );
 }
